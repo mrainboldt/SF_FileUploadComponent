@@ -1,0 +1,38 @@
+<aura:component access="GLOBAL"
+				controller="FileUploadController"
+				>
+	<!--ATTRIBUTES-->
+    <aura:attribute name="parentId" type="Id"/>
+    <aura:attribute name="fileName" type="String" />
+    <aura:attribute name="attachmentId" type="Id" />
+    
+    <!--HANDLERS-->
+    <!--<aura:handler event="aura:waiting" action="{!c.waiting}"/>
+    <aura:handler event="aura:doneWaiting" action="{!c.doneWaiting}"/>-->
+    
+    <!--<div>
+        <input type="file" class="file" aura:id="file" />
+        <ui:button label="Save" press="{!c.save}"/>
+        
+        <div aura:id="uploading" class="notUploading">
+            <lightning:spinner variant="brand" size="x-small"/> Uploading...
+    	</div>-->
+    	<ui:button>
+    		<input type="file" class="slds-file-selector__input slds-assistive-text" accept="doc/pdf" id="file" aura:id="file" aria-describedby="file-selector-id" onchange="{!c.save}"/>
+			<label class="slds-file-selector__body" for="file">
+				<span class="slds-file-selector__button slds-button slds-button-neutral">
+					<lightning:icon iconName="utility:upload" size="x-small" class="slds-button__icon-left"/>
+					Upload SOW
+				</span>
+			</label>
+		</ui:button>
+		{!v.fileName}
+		<lightning:icon iconName="utility:check" size="x-small" class="success slds-hide" aura:id="uploadSuccess"/>
+		<lightning:icon iconName="utility:close" size="x-small" class="slds-hide" aura:id="uploadFail" variant="error"/>
+		<div aura:id="uploading" class="slds-hide">
+        	<lightning:spinner size="x-small" aura:id="spinner" alternativeText="Uploading..." variant="brand"/> Uploading...
+		</div>
+		<!--<ui:button label="Save File" press="{!c.save}"/>-->
+    <!--</div>-->
+    
+</aura:component>
